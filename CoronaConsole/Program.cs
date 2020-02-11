@@ -53,12 +53,12 @@ namespace CoronaConsole
             // BEREKEN  overzicht:
             //      BEREKEN     overzicht(=lege lijst)
             //      HERHAAL datum van beginDatum t/m eindDatum IN STAPPEN VAN 1 dag
-            for (DateTime datum = beginDatum; datum <= eindDatum; datum.AddDays(1))
+            for (DateTime datum = beginDatum; datum <= eindDatum; datum = datum.AddDays(1))
             {
                 //          BEREKEN aangroei (berekeningAangroei: aantalBesmettingen)
                 aangroei = BerekenAangroei(aantalBesmettingen);
                 //          BEREKEN overzichtslijn (=(datum):( aantalbesmettingen)*(aangroei))
-                overzichtLijn = $"{datum}: {aantalBesmettingen} * {aangroei}";
+                overzichtLijn = $"{datum.ToString("YYYY-MM-DD")}: {aantalBesmettingen} * {aangroei}";
                 //          BEREKEN aantalBesmettingen (= aantalBesmettingen + aangroei)
                 aantalBesmettingen += aangroei;
 
@@ -69,8 +69,12 @@ namespace CoronaConsole
 
             //      BEREKEN overzicht (=omgekeerd sorteren)
             // TOON     overzicht
-            Console.WriteLine(overzicht);
+            overzicht.Reverse();
             
+            foreach (var item in overzicht)
+            {
+                Console.WriteLine(overzicht);
+            }
 
 
             //WACHTEN
