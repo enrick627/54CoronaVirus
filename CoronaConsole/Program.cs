@@ -73,7 +73,7 @@ namespace CoronaConsole
             
             foreach (var item in overzicht)
             {
-                Console.WriteLine(overzicht);
+                Console.WriteLine(item);
             }
 
 
@@ -91,7 +91,7 @@ namespace CoronaConsole
             ulong aangroei = (ulong)(aantalBesmetting * 0.48);
             //  RETURN      aangroei
             return aangroei;
-            throw new InsufficientMemoryException();
+            
         }
         
 
